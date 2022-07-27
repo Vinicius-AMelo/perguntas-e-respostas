@@ -1,0 +1,46 @@
+<%- include('partials/header.ejs')%>
+
+  <body>
+    <%- include('partials/navbar')%>
+      <div class="container">
+        <div class="card mt-4">
+          <div class="card-header">
+            <h3>
+              <%= pergunta.titulo%>
+            </h3>
+          </div>
+          <div class="card-body">
+            <p>
+              <%= pergunta.descricao %>
+            </p>
+          </div>
+        </div>
+        <hr>
+        <form action="/pergunta" method="post" class="mt-4">
+          <input type="hidden" name="perguntaID" value="<%= pergunta.id %>">
+          <label for="corpo">Resposta:</label>
+          <textarea name="corpo" class="form-control"></textarea>
+          <button type="submit" class="btn btn-primary mt-4">Postar Resposta</button>
+        </form>
+        <hr>
+        <div class="card mt-4">
+          <div class="card-header">
+            <h3>Respostas</h3>
+          </div>
+          <% for (resposta of respostas) {%>
+
+            <div class="card-body">
+              <p>
+                <%= resposta.corpo %>
+
+              </p>
+            </div>
+            <% }%>
+        </div>
+      </div>
+
+
+
+  </body>
+
+  <%- include('partials/footer.ejs') %>
