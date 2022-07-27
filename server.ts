@@ -1,10 +1,10 @@
 import express, { urlencoded } from 'express'
 import path from 'path'
-import route from './routes'
+import route from './src/routes'
 // import { middleareGlobal } from './middlewares/middlewares'
-import sequelizeConnection from './model/database'
-import PerguntaModel from './model/PerguntaModel'
-import RespostaModel from './model/RespostaModel'
+import sequelizeConnection from './src/model/database'
+import PerguntaModel from './src/model/PerguntaModel'
+import RespostaModel from './src/model/RespostaModel'
 
 const app = express()
 const porta = 3000
@@ -25,9 +25,9 @@ RespostaModel.sync({ force: false }).then(() => {
 
 app.use(urlencoded({ extended: true }))
 
-app.set('views', path.resolve(__dirname, 'views'))
+app.set('views', path.resolve(__dirname, 'src', 'views'))
 app.set('view engine', 'ejs')
-app.use(express.static('public'))
+app.use(express.static(path.resolve(__dirname, 'public')))
 
 // app.use(middleareGlobal)
 // app.use(deleteQuestion)
