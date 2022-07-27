@@ -17,6 +17,7 @@ export const respostasGET = (req: Request, res: Response) => {
       perguntaID: id,
     },
     raw: true,
+    order: [['id', 'DESC']],
   }).then((respostas) => {
     console.log(respostas)
     res.locals.respostas = respostas
@@ -25,10 +26,11 @@ export const respostasGET = (req: Request, res: Response) => {
 }
 
 export const respostasPost = (req: Request, res: Response) => {
+  const id = req.body.perguntaID
   RespostaModel.create({
     corpo: req.body.corpo,
     perguntaID: req.body.perguntaID,
   }).then(() => {
-    res.redirect('/')
+    res.redirect(`pergunta/${id}`)
   })
 }

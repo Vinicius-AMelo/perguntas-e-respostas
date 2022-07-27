@@ -11,6 +11,7 @@
         <% for (pergunta of perguntas) {%>
           <div class="card mt-4">
             <div class="card-header">
+              <small class="text-muted">Anônimo perguntou:</small>
               <h3>
                 <%= pergunta.titulo %>
               </h3>
@@ -19,6 +20,7 @@
               <p>
                 <%= pergunta.descricao%>
               </p>
+              <hr>
               <a href="/pergunta/<%= pergunta.id %>" class="btn btn-primary">Responder</a>
             </div>
           </div>

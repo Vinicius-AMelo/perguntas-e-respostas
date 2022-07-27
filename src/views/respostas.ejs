@@ -23,17 +23,18 @@
           <button type="submit" class="btn btn-primary mt-4">Postar Resposta</button>
         </form>
         <hr>
-        <div class="card mt-4">
+        <div class="card mt-4 mb-4">
           <div class="card-header">
             <h3>Respostas</h3>
           </div>
           <% for (resposta of respostas) {%>
-
             <div class="card-body">
+              <small class="text-muted">Anônimo respondeu:</small>
               <p>
                 <%= resposta.corpo %>
 
               </p>
+              <hr>
             </div>
             <% }%>
         </div>
